@@ -1,0 +1,81 @@
+<div id="filters">
+    <div class="mini-cont filter-container">
+        <div class="d-flex">
+            <span class="main-heading">Filters</span>
+            <span class="clear" *ngIf="canDisplayClear('')" (click)="clearFilter('')">Clear All</span>
+        </div>
+    </div>
+    <div class="mini-cont categories">
+        <div class="filter-container">
+            <div class="d-flex">
+                <span class="sub-heading">Categories</span>
+                <span class="clear" *ngIf="canDisplayClear('category')" (click)="clearFilter('category')">Clear</span>
+            </div>
+        </div>
+        <div class="category-container">
+            <div class="filter-type" *ngFor="let category of categories"
+                [ngClass]="{'active':isActive('category',category.name)}" (click)="setFilter({category:category.name})">
+                <span>{{category.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mini-cont gender">
+        <div class="filter-container">
+            <div class="d-flex">
+                <span class="sub-heading">Ideal For</span>
+                <span class="clear" *ngIf="canDisplayClear('ideal_for')" (click)="clearFilter('ideal_for')">Clear</span>
+            </div>
+        </div>
+        <div class="gender-container">
+            <div class="filter-type" *ngFor="let type of ideal_for"
+                [ngClass]="{'active':isActive('ideal_for',type.name)}" (click)="setFilter({ideal_for:type.name})">
+                <span>{{type.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mini-cont brand">
+        <div class="filter-container">
+            <div class="d-flex">
+                <span class="sub-heading">Brand</span>
+                <span class="clear" *ngIf="canDisplayClear('brand')" (click)="clearFilter('brand')">Clear</span>
+            </div>
+        </div>
+        <div class="brand-container">
+            <div class="filter-type" (click)="setFilter({brand:brand.name})" *ngFor="let brand of brands"
+                [ngClass]="{'active':isActive('brand',brand.name)}">
+                <span>{{brand.name}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mini-cont price">
+        <div class="filter-container">
+            <div class="d-flex">
+                <span class="sub-heading">Price</span>
+                <span class="clear" *ngIf="canDisplayClear('price')" (click)="clearFilter('price')">Clear</span>
+            </div>
+        </div>
+        <div class="price-container">
+            <input class="range" (change)="onPriceChange($event.target.value)" type="range" name="" id=""
+                [min]="minPrice" [max]="maxPrice" [value]="selectedPrice">
+            <div class="d-flex">
+                <span> {{minPrice|currency:"INR"}}</span>
+                <span>to</span>
+                <span> {{maxPrice|currency:"INR"}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="mini-cont size">
+        <div class="filter-container">
+            <div class="d-flex">
+                <span class="sub-heading">Size</span>
+                <span class="clear" *ngIf="canDisplayClear('size')" (click)="clearFilter('size')">Clear</span>
+            </div>
+        </div>
+        <div class="size-container">
+            <div class="filter-type" (click)="setFilter({size:s.name})" *ngFor="let s of size"
+                [ngClass]="{'active':isActive('size',s.name)}">
+                <span>{{s.name}}</span>
+            </div>
+        </div>
+    </div>
+</div>

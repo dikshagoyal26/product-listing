@@ -1,0 +1,49 @@
+#filters {
+  background: white;
+  padding: 5px;
+  width: 100%;
+  margin-top: 20px;
+}
+.filter-container .d-flex {
+  justify-content: space-between;
+  align-items: center;
+}
+.clear {
+  cursor: pointer;
+  color: #2874f0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.main-heading {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.mini-cont {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 1rem;
+}
+.sub-heading {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #212121;
+}
+.filter-type {
+  padding: 5px 12px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.filter-type:hover {
+  background: #eee;
+}
+.filter-type.active {
+  background: #17a2b87d;
+  font-weight: bold;
+}
+.range {
+  width: 100%;
+}
+.price-container .d-flex {
+  justify-content: space-between;
+}

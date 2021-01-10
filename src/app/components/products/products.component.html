@@ -1,0 +1,15 @@
+<div *ngIf="products && products.length>0;else noProduct">
+    <div class="container sort mt-3">
+        <span>Sort By:</span>
+        <button class="btn btn-link" (click)="setOrder('asc')" [ngClass]="{'active':order=='asc'}">Price-- Low To
+            High</button>
+        <button class="btn btn-link" (click)="setOrder('des')" [ngClass]="{'active':order=='des'}">Price-- High To
+            Low</button>
+    </div>
+    <div class="card-deck">
+        <app-product-card *ngFor="let product of products| sortBy:order:key" [product]="product"></app-product-card>
+    </div>
+</div>
+<ng-template #noProduct>
+    <h1>No Products Found</h1>
+</ng-template>
